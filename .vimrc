@@ -50,6 +50,7 @@ set rnu
 "colors
 syntax on
 colorscheme desert
+" colorscheme industry
 
 "send all backups to home/vimbackups
 set backupdir=./vimbackups,../vimbackups,~/vim/backups,.
@@ -66,6 +67,13 @@ set smartcase
 
 "set the current working directory when entering a new file
 autocmd BufEnter * silent! :lcd%:p:h
+
+"update ctags for this file upon saving
+autocmd BufWritePost * silent! !ctags -a %
+set tags=./tags,tags;$HOME
+"trailing space is important
+nnoremap <C-f> :tag *
+
 
 "remove all trailing whitespace on lines with non-whitespace characters
 " autocmd BufEnter * silent! :call <SID>StripTrailingWhitespaces()
@@ -90,17 +98,6 @@ nnoremap <C-k> 4<C-Y>
 "keyboard
 nnoremap ; ,
 nnoremap , ;
-
-"mapping to adapt indentation when pasting converts spaces to tabs, not always wanted
-" nmap P ]P
-" nmap p ]p
-
-"for keeping indentation on lines where I don't write anything
-"(leftover habit from eclipse)
-inoremap <CR> <CR>x<BS>
-nnoremap o ox<BS>
-nnoremap O Ox<BS>
-
 
 "copying and pasting the standard windows way - doesn't really work if I don't
 "have a clipboard manager
@@ -130,3 +127,12 @@ endfun
 
 "PLUGINS
  let g:NERDSpaceDelims = 1
+
+"txt - Language is turned to German
+"z= to get suggestions for wrong word
+"zg to add word to dictionary
+"zw to add word as incorrect
+autocmd Filetype txt setlocal spell spelllang=de_DE
+
+"C#
+autocmd Filetype cs setlocal expandtab
