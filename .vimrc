@@ -31,6 +31,7 @@ filetype indent plugin on
 
 "for indentating html - otherwise these tags are not recognized
 let g:html_indent_inctags = "html,body,head,tbody,table,td,tr,th,canvas"
+
 "whitespace
 set tabstop=4
 set shiftwidth=4
@@ -50,14 +51,13 @@ set rnu
 "colors
 syntax on
 colorscheme desert
-" colorscheme industry
 
 "send all backups to home/vimbackups
-set backupdir=./vimbackups,../vimbackups,~/vim/backups,.
-set directory=./vimbackups,../vimbackups,~/vim/backups,.
+set backupdir=~/.vim/backups,.
+set directory=~/.vim/swapfiles,.
 
 " Persistent undo
-set undodir=~/.vim/undofiles
+set undodir=~/.vim/undofiles,.
 set undofile
 
 "search and replace options ignore case, except if there's something uppercase
@@ -67,13 +67,6 @@ set smartcase
 
 "set the current working directory when entering a new file
 autocmd BufEnter * silent! :lcd%:p:h
-
-"update ctags for this file upon saving
-autocmd BufWritePost * silent! !ctags -a %
-set tags=./tags,tags;$HOME
-"trailing space is important
-nnoremap <C-f> :tag *
-
 
 "remove all trailing whitespace on lines with non-whitespace characters
 " autocmd BufEnter * silent! :call <SID>StripTrailingWhitespaces()
@@ -85,13 +78,12 @@ nmap <F1> <nop>
 
 "remap leader to space
 nnoremap <SPACE> <nop>
-"let mapleader = "\<SPACE>"
 let mapleader = " "
 
 "move screen
 nnoremap <C-h> 4zh
 nnoremap <C-l> 4zl
-nnoremap<C-j> 4<C-E>
+nnoremap <C-j> 4<C-E>
 nnoremap <C-k> 4<C-Y>
 
 "getting the next match of f or t, but more logical - at least on a german
@@ -106,7 +98,6 @@ nnoremap <silent> <C-v> "+p
 nnoremap <silent> <C-c> "+Y<esc>
 vnoremap <silent> <C-c> "+y<esc>
 vnoremap <silent> <C-v> "+p
-" nnoremap <silent> <C-a> <esc>ggVG
 
 "removes the highlighting after search
 "until I can fix the escape codes sent by the terminal, I'll have to press esc

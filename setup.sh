@@ -1,7 +1,8 @@
-cp .vimrc ~/.vimrc
+#!/bin/bash
 cp .bashrc ~/.bashrc
 cp .bash_profile ~/.bash_profile
 cp .fishrc ~/.fishrc
 cp .xinitrc ~/.xinitrc
-mkdir -p .config
-cp -r i3 .config/i3
+./setup-vim.sh
+mkdir ~/.config
+cp -r i3 ~/.config/i3
