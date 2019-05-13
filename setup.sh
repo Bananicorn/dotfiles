@@ -5,4 +5,4 @@ cp .fishrc ~/.fishrc
 cp .xinitrc ~/.xinitrc
 ./setup-vim.sh
 mkdir ~/.config
-cp -r i3 ~/.config/i3
+cp -r i3 ~/.config/i3/config
