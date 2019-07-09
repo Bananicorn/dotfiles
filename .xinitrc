@@ -36,13 +36,11 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-# start background and set a random one
-exec ~/.fehbg &
-exec --no-startup-id feh --randomize --bg-fill ~Wallpapers/* &
-
 # keyboard
 exec setxkbmap -option caps:escape -layout de &
+exec xinput set-prop 'SynPS/2 Synaptics TouchPad' 'Synaptics Tap Action' 1 1 1 1 1 1 1 &
+exec xinput set-prop 'SynPS/2 Synaptics TouchPad' 'Synaptics Two-Finger Scrolling' 1 1 &
+exec xinput set-prop 'TPPS/2 IBM TrackPoint' 'libinput Accel Speed' -.3 &
 
 #and finally start the WM
 exec i3
-# exec dwm
