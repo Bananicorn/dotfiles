@@ -6,6 +6,9 @@ set nocompatible
 "in this case in the folder .vim in home
 set packpath+=~/.vim
 
+"needed for language server integration
+set runtimepath+=~/.vim-plugins/LanguageClient-neovim
+
 "turn off the taskbar in gvim
 set guioptions-=m
 
@@ -19,6 +22,12 @@ set backspace=indent,eol,start
 set hlsearch
 "search while entering the search query
 set incsearch
+
+"show me the options to autocomplete while in command mode
+set wildmenu
+"autocomplete stuff by giving me the match up to the first differing character
+"then tab through the options
+set wildmode=longest:list,full
 
 "NO, I don't want ANSI.
 set fileencodings=utf-8
@@ -50,7 +59,8 @@ set rnu
 
 "colors
 syntax on
-colorscheme desert
+"colorscheme desert
+colorscheme zellner
 
 "send all backups to home/vimbackups
 set backupdir=~/.vim/backups,.
@@ -86,18 +96,10 @@ nnoremap <C-l> 4zl
 nnoremap <C-j> 4<C-E>
 nnoremap <C-k> 4<C-Y>
 
-"getting the next match of f or t, but more logical - at least on a german
+"getting the next match of f or t, but more logically - at least on a german
 "keyboard
 nnoremap ; ,
 nnoremap , ;
-
-"copying and pasting the standard windows way - doesn't really work if I don't
-"have a clipboard manager
-inoremap <silent> <C-v> <C-R>+
-nnoremap <silent> <C-v> "+p
-nnoremap <silent> <C-c> "+Y<esc>
-vnoremap <silent> <C-c> "+y<esc>
-vnoremap <silent> <C-v> "+p
 
 "removes the highlighting after search
 "until I can fix the escape codes sent by the terminal, I'll have to press esc
@@ -105,6 +107,15 @@ vnoremap <silent> <C-v> "+p
 nnoremap <silent> <esc><esc> :noh<CR>
 " nnoremap <silent> <esc> :noh<CR>
 
+"commenting:
+"autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
+"autocmd FileType sh,ruby,python   let b:comment_leader = '# '
+"autocmd FileType conf,fstab       let b:comment_leader = '# '
+"autocmd FileType tex              let b:comment_leader = '% '
+"autocmd FileType mail             let b:comment_leader = '> '
+"autocmd FileType vim              let b:comment_leader = '" '
+"
+"nnoremap <leader>c<leader> _ib:comment_leader<esc>
 
 "_____________AUX FUNCTIONS_________________
 
@@ -116,14 +127,17 @@ fun! <SID>StripTrailingWhitespaces()
 	call cursor(l, c)
 endfun
 
-"PLUGINS
- let g:NERDSpaceDelims = 1
-
+"FILETYPE SPECIFIC STUFF
 "txt - Language is turned to German
 "z= to get suggestions for wrong word
 "zg to add word to dictionary
 "zw to add word as incorrect
 autocmd Filetype txt setlocal spell spelllang=de_DE
+:syn match txt_checkbox_unchecked display "[ ]"
+:hi txt_checkbox guibg=#FF0000
 
-"C#
-autocmd Filetype cs setlocal expandtab
+:syn match txt_checkbox_checked display "[x]"
+:hi txt_checkbox guibg=#00FF00
+
+"Stuff for working with povray
+autocmd Filetype txt nnoremap <F5> :!povray .
