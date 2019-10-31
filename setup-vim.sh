@@ -1,5 +1,5 @@
 #!/bin/bash
-cp .vimrc ~/.vimrc
+ln -s ~/dotfiles/.vimrc ~/.vimrc
 mkdir ~/.vim
 mkdir ~/.vim/plugin
 mkdir ~/.vim/undofiles
