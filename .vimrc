@@ -1,4 +1,3 @@
-
 "not VI compatible
 set nocompatible
 
@@ -35,8 +34,9 @@ set encoding=utf-8
 set fileencoding=utf-8
 
 "turn on syntax highlighting and indentation
-"syntax on
+syntax on
 filetype indent plugin on
+colorscheme zellner
 
 "for indentating html - otherwise these tags are not recognized
 let g:html_indent_inctags = "html,body,head,tbody,table,td,tr,th,canvas"
@@ -57,10 +57,6 @@ set wrapmargin=0
 set nu
 set rnu
 
-"colors
-syntax on
-"colorscheme desert
-colorscheme zellner
 
 "send all backups to home/vimbackups
 set backupdir=~/.vim/backups,.
