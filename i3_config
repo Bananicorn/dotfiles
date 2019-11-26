@@ -1,0 +1,157 @@
+font pango:monospace 8
+
+#directions
+set $up k
+set $down j
+set $left h
+set $right l
+
+set $Mod Mod4
+
+# use Mouse+Mod4 to drag floating windows to their wanted position
+floating_modifier $Mod
+
+# kill focused window
+bindsym $Mod+Shift+q kill
+bindsym Mod1+F4 kill
+
+# change focus
+bindsym $Mod+$left focus left
+bindsym $Mod+$down focus down
+bindsym $Mod+$up focus up
+bindsym $Mod+$right focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $Mod+Left focus left
+bindsym $Mod+Down focus down
+bindsym $Mod+Up focus up
+bindsym $Mod+Right focus right
+
+# move focused window - yes, vim bindings.
+bindsym $Mod+Shift+$left move left
+bindsym $Mod+Shift+$down move down
+bindsym $Mod+Shift+$up move up
+bindsym $Mod+Shift+$right move right
+
+# alternatively, you can use the cursor keys:
+bindsym $Mod+Shift+Left move left
+bindsym $Mod+Shift+Down move down
+bindsym $Mod+Shift+Up move up
+bindsym $Mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $Mod+shift+v split h
+
+# split in vertical orientation
+bindsym $Mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $Mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $Mod+s layout stacking
+bindsym $Mod+w layout tabbed
+bindsym $Mod+Shift+w layout toggle split
+
+# toggle tiling / floating
+bindsym $Mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $Mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $Mod+a focus parent
+
+# focus the child container
+bindsym $Mod+d focus child
+
+# move the currently focused window to the scratchpad
+bindsym $Mod+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $Mod+minus scratchpad show
+
+# switch to workspace
+bindsym $Mod+1 workspace 1
+bindsym $Mod+2 workspace 2
+bindsym $Mod+3 workspace 3
+bindsym $Mod+4 workspace 4
+bindsym $Mod+5 workspace 5
+bindsym $Mod+6 workspace 6
+bindsym $Mod+7 workspace 7
+bindsym $Mod+8 workspace 8
+bindsym $Mod+9 workspace 9
+bindsym $Mod+0 workspace 10
+bindsym $Mod+Tab workspace next
+bindsym $Mod+Shift+Tab workspace prev
+
+# move focused container to workspace
+bindsym $Mod+Shift+1 move container to workspace 1
+bindsym $Mod+Shift+2 move container to workspace 2
+bindsym $Mod+Shift+3 move container to workspace 3
+bindsym $Mod+Shift+4 move container to workspace 4
+bindsym $Mod+Shift+5 move container to workspace 5
+bindsym $Mod+Shift+6 move container to workspace 6
+bindsym $Mod+Shift+7 move container to workspace 7
+bindsym $Mod+Shift+8 move container to workspace 8
+bindsym $Mod+Shift+9 move container to workspace 9
+bindsym $Mod+Shift+0 move container to workspace 10
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+		# These bindings trigger as soon as you enter the resize mode
+		
+		# Pressing left will shrink the window’s width.
+		# Pressing right will grow the window’s width.
+		# Pressing up will shrink the window’s height.
+		# Pressing down will grow the window’s height.
+		bindsym $left       resize shrink width 10 px or 10 ppt
+		bindsym $down       resize shrink height 10 px or 10 ppt
+		bindsym $up         resize grow height 10 px or 10 ppt
+		bindsym $right      resize grow width 10 px or 10 ppt
+		
+		# same bindings, but for the arrow keys
+		bindsym Left        resize shrink width 10 px or 10 ppt
+		bindsym Down        resize shrink height 10 px or 10 ppt
+		bindsym Up          resize grow height 10 px or 10 ppt
+		bindsym Right       resize grow width 10 px or 10 ppt
+		
+		# back to normal: Enter or Escape
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
+}
+
+bindsym $Mod+r mode "resize"
+# reload the configuration file
+bindsym $Mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $Mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $Mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# PROGRAM SHORTCUTS
+# bindsym $Mod+Return exec i3-sensible-terminal
+bindsym $Mod+Shift+Return exec xterm
+bindsym $Mod+Return exec st
+bindsym $Mod+Shift+f exec firefox
+bindsym $Mod+Shift+m exec midori
+bindsym $Mod+e exec pcmanfm
+
+# VOLUME
+bindsym XF86AudioRaiseVolume exec amixer sset Master 5+
+bindsym XF86AudioLowerVolume exec amixer sset Master 5-
+bindsym XF86AudioMute exec amixer sset Master toggle
+
+# just some cosmetic options
+
+new_window 1pixel
+#class				border  backgr. text    indicator child_border
+client.background	#222222 #222222
+client.focused		#33DD33 #222222 #FFFFFF #33DD33 #33DD33
+
+# AUTOSTART
+exec ~/scripts/autoconnect_screen.sh
+exec i3-msg 'workspace 1; exec firefox'
+exec i3-msg 'workspace 2; exec st'
+
