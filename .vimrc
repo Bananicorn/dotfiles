@@ -103,37 +103,5 @@ nnoremap , ;
 nnoremap <silent> <esc><esc> :noh<CR>
 " nnoremap <silent> <esc> :noh<CR>
 
-"commenting:
-"autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
-"autocmd FileType sh,ruby,python   let b:comment_leader = '# '
-"autocmd FileType conf,fstab       let b:comment_leader = '# '
-"autocmd FileType tex              let b:comment_leader = '% '
-"autocmd FileType mail             let b:comment_leader = '> '
-"autocmd FileType vim              let b:comment_leader = '" '
-"
-"nnoremap <leader>c<leader> _ib:comment_leader<esc>
-
-"_____________AUX FUNCTIONS_________________
-
-"doesn't remove lines with ONLY whitespace
-fun! <SID>StripTrailingWhitespaces()
-	let l = line(".")
-	let c = col(".")
-	%s/\v([^\t])(\t|\s)+$/\1/g
-	call cursor(l, c)
-endfun
-
-"FILETYPE SPECIFIC STUFF
-"txt - Language is turned to German
-"z= to get suggestions for wrong word
-"zg to add word to dictionary
-"zw to add word as incorrect
-autocmd Filetype txt setlocal spell spelllang=de_DE
-:syn match txt_checkbox_unchecked display "[ ]"
-:hi txt_checkbox guibg=#FF0000
-
-:syn match txt_checkbox_checked display "[x]"
-:hi txt_checkbox guibg=#00FF00
-
-"Stuff for working with povray
-autocmd Filetype txt nnoremap <F5> :!povray .
+"f5 triggers a povray render when in a .pov file
+autocmd FileType pov nnoremap <F5> :!povray .<CR>:redraw!<CR>
