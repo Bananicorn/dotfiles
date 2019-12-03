@@ -36,7 +36,8 @@ set fileencoding=utf-8
 "turn on syntax highlighting and indentation
 syntax on
 filetype indent plugin on
-colorscheme zellner
+"colorscheme zellner
+colorscheme gentooish "available in the void-package vim-colorschemes
 
 "for indentating html - otherwise these tags are not recognized
 let g:html_indent_inctags = "html,body,head,tbody,table,td,tr,th,canvas"
@@ -104,4 +105,7 @@ nnoremap <silent> <esc><esc> :noh<CR>
 " nnoremap <silent> <esc> :noh<CR>
 
 "f5 triggers a povray render when in a .pov file
-autocmd FileType pov nnoremap <F5> :!povray .<CR>:redraw!<CR>
+augroup pov
+autocmd!
+	au BufWritePost *.pov !povray .
+augroup END
