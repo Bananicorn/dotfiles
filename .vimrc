@@ -87,6 +87,9 @@ nmap <F1> <nop>
 nnoremap <SPACE> <nop>
 let mapleader = " "
 
+"insert line-break
+nnoremap <leader><CR> o<esc>
+
 "move screen
 nnoremap <C-h> 4zh
 nnoremap <C-l> 4zl
@@ -104,8 +107,14 @@ nnoremap , ;
 nnoremap <silent> <esc><esc> :noh<CR>
 " nnoremap <silent> <esc> :noh<CR>
 
-"f5 triggers a povray render when in a .pov file
+"autocommands for povray files
 augroup pov
 autocmd!
 	au BufWritePost *.pov !povray .
+augroup END
+
+"autocommands for the twig templating language
+augroup twig
+autocmd!
+	au BufReadPost *.twig set ft=html
 augroup END
