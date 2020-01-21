@@ -137,7 +137,7 @@ bindsym $Mod+Return exec st
 bindsym $Mod+Shift+f exec firefox
 bindsym $Mod+Shift+m exec midori
 bindsym $Mod+e exec pcmanfm
-bindsym F12 exec flameshot gui
+bindsym Print exec flameshot gui
 
 # VOLUME
 bindsym XF86AudioRaiseVolume exec amixer sset Master 5+
