@@ -38,6 +38,7 @@ syntax on
 filetype indent plugin on
 "colorscheme zellner
 colorscheme gentooish "available in the void-package vim-colorschemes
+"colorscheme holokai "available in the void-package vim-colorschemes
 
 "for indentating html - otherwise these tags are not recognized
 let g:html_indent_inctags = "html,body,head,tbody,table,td,tr,th,canvas"
@@ -111,6 +112,11 @@ nnoremap <silent> <esc><esc> :noh<CR>
 augroup pov
 autocmd!
 	au BufWritePost *.pov !povray .
+augroup END
+
+augroup tsv
+autocmd!
+	au BufReadPost *.tsv set tabstop=20
 augroup END
 
 "autocommands for the twig templating language
