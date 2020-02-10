@@ -5,9 +5,6 @@ set nocompatible
 "in this case in the folder .vim in home
 set packpath+=~/.vim
 
-"needed for language server integration
-set runtimepath+=~/.vim-plugins/LanguageClient-neovim
-
 "turn off the taskbar in gvim
 set guioptions-=m
 
@@ -36,6 +33,12 @@ set fileencoding=utf-8
 "turn on syntax highlighting and indentation
 syntax on
 filetype indent plugin on
+
+"Akin to intellisense
+"I should set this up to work with <C-N>
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+
 "colorscheme zellner
 colorscheme gentooish "available in the void-package vim-colorschemes
 "colorscheme holokai "available in the void-package vim-colorschemes
@@ -108,18 +111,21 @@ nnoremap , ;
 nnoremap <silent> <esc><esc> :noh<CR>
 " nnoremap <silent> <esc> :noh<CR>
 
-"autocommands for povray files
+
+"AUTOCOMMANDS
+"for povray files
 augroup pov
 autocmd!
 	au BufWritePost *.pov !povray .
 augroup END
 
+"for tsv files - which I like to be nicely aligned
 augroup tsv
 autocmd!
 	au BufReadPost *.tsv set tabstop=20
 augroup END
 
-"autocommands for the twig templating language
+"for the twig templating language
 augroup twig
 autocmd!
 	au BufReadPost *.twig set ft=html
