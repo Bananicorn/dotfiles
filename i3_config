@@ -138,6 +138,8 @@ bindsym $Mod+Shift+f exec firefox
 bindsym $Mod+Shift+m exec midori
 bindsym $Mod+e exec pcmanfm
 bindsym Print exec flameshot gui
+bindsym --release Pause exec slock
+bindsym $Mod+Shift+s exec ~/scripts/autoconnect_screen.sh
 
 # VOLUME
 bindsym XF86AudioRaiseVolume exec amixer sset Master 5+
@@ -152,6 +154,6 @@ client.background	#222222 #222222
 client.focused		#33DD33 #222222 #FFFFFF #33DD33 #33DD33
 
 # AUTOSTART
-exec i3-msg 'workspace 1; exec firefox'; sleep 5; exec i3-msg 'workspace 2; exec st'
+exec i3-msg 'workspace 1; exec firefox'; sleep 1; exec i3-msg 'workspace 2; exec st'
 exec ~/scripts/autoconnect_screen.sh
 
