@@ -119,10 +119,17 @@ autocmd!
 	au BufWritePost *.pov !povray .
 augroup END
 
+"for the regular text
+augroup txt
+autocmd!
+	au BufReadPost *.txt setlocal spell
+	au BufReadPost *.txt setlocal tw=80
+augroup END
+
 "for tsv files - which I like to be nicely aligned
 augroup tsv
 autocmd!
-	au BufReadPost *.tsv set tabstop=20
+	au BufReadPost *.tsv setlocal tabstop=20
 augroup END
 
 "for the twig templating language
