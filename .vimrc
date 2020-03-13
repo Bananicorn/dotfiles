@@ -38,10 +38,16 @@ filetype indent plugin on
 "I should set this up to work with <C-N>
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
+"also autocomplete words which are hyphen-separated
+set iskeyword+=\-
 
 "colorscheme zellner
 colorscheme gentooish "available in the void-package vim-colorschemes
 "colorscheme holokai "available in the void-package vim-colorschemes
+
+"always underline spelling errors instead of making their background red
+hi clear SpellBad
+hi SpellBad cterm=underline ctermfg=red
 
 "for indentating html - otherwise these tags are not recognized
 let g:html_indent_inctags = "html,body,head,tbody,table,td,tr,th,canvas"
@@ -124,6 +130,17 @@ augroup txt
 autocmd!
 	au BufReadPost *.txt setlocal spell
 	au BufReadPost *.txt setlocal tw=80
+	au BufReadPost *.txt highlight Checked ctermfg=White ctermbg=DarkGreen
+	au BufReadPost *.txt highlight Unchecked ctermfg=White ctermbg=DarkRed
+	au BufReadPost *.txt syn match Unchecked /\[ \]/
+	au BufReadPost *.txt syn match Checked /\[x\]/
+augroup END
+
+"for the regular text
+augroup md
+autocmd!
+	au BufReadPost *.md setlocal spell
+	au BufReadPost *.md setlocal tw=80
 augroup END
 
 "for tsv files - which I like to be nicely aligned
