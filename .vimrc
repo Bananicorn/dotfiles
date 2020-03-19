@@ -5,6 +5,10 @@ set nocompatible
 "in this case in the folder .vim in home
 set packpath+=~/.vim
 
+"lets vim search for files to open recursively
+"for use with the find command
+set path+=**
+
 "turn off the taskbar in gvim
 set guioptions-=m
 
@@ -81,9 +85,6 @@ set undofile
 "in it
 set ignorecase
 set smartcase
-
-"set the current working directory when entering a new file
-autocmd BufEnter * silent! :lcd%:p:h
 
 "remove all trailing whitespace on lines with non-whitespace characters
 " autocmd BufEnter * silent! :call <SID>StripTrailingWhitespaces()
