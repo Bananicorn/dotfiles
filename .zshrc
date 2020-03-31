@@ -29,6 +29,7 @@ bindkey -a j history-beginning-search-forward
 
 alias c=clear
 alias q=exit
+alias :q=exit
 alias d="dirs -v" # print recently visited directories
 alias dup="st & disown"
 alias ls="ls --color"
@@ -37,6 +38,11 @@ alias lah="ls -lah --color"
 alias grep="grep --color"
 alias vopenscad="~/scripts/vim-openscad.sh"
 alias vpov="~/scripts/vim-povray.sh"
+alias tags="ctags -R --exclude=.git --exclude=node_modules"
+
+# Custom autocomplete commands
+#completion::complete:dvips:option-o-1:files
+#compdef dd=less
 
 export torgglercom="~/suticlients/torgglercom/web/app/theme/chimica"
 
