@@ -8,6 +8,8 @@ set packpath+=~/.vim
 "lets vim search for files to open recursively
 "for use with the find command
 set path+=**
+"Yeah, don't search through node_modules
+set wildignore+=**/node_modules/**
 
 "turn off the taskbar in gvim
 set guioptions-=m
@@ -28,6 +30,7 @@ set wildmenu
 "autocomplete stuff by giving me the match up to the first differing character
 "then tab through the options
 set wildmode=longest:list,full
+
 
 "NO, I don't want ANSI.
 set fileencodings=utf-8
