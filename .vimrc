@@ -31,6 +31,9 @@ set wildmenu
 "then tab through the options
 set wildmode=longest:list,full
 
+"put new windows to the right/below
+set splitright
+set splitbelow
 
 "NO, I don't want ANSI.
 set fileencodings=utf-8
@@ -45,8 +48,6 @@ filetype indent plugin on
 "I should set this up to work with <C-N>
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
-"also autocomplete words which are hyphen-separated
-set iskeyword+=\-
 
 "colorscheme zellner
 colorscheme gentooish "available in the void-package vim-colorschemes
@@ -121,40 +122,6 @@ nnoremap , ;
 nnoremap <silent> <esc><esc> :noh<CR>
 " nnoremap <silent> <esc> :noh<CR>
 
-
-"AUTOCOMMANDS
-"for povray files
-augroup pov
-autocmd!
-	au BufWritePost *.pov !povray .
-augroup END
-
-"for the regular text
-augroup txt
-autocmd!
-	au BufReadPost *.txt setlocal spell
-	au BufReadPost *.txt setlocal tw=80
-	au BufReadPost *.txt highlight Checked ctermfg=White ctermbg=DarkGreen
-	au BufReadPost *.txt highlight Unchecked ctermfg=White ctermbg=DarkRed
-	au BufReadPost *.txt syn match Unchecked /\[ \]/
-	au BufReadPost *.txt syn match Checked /\[x\]/
-augroup END
-
-"for the regular text
-augroup md
-autocmd!
-	au BufReadPost *.md setlocal spell
-	au BufReadPost *.md setlocal tw=80
-augroup END
-
-"for tsv files - which I like to be nicely aligned
-augroup tsv
-autocmd!
-	au BufReadPost *.tsv setlocal tabstop=20
-augroup END
-
-"for the twig templating language
-augroup twig
-autocmd!
-	au BufReadPost *.twig set ft=html
-augroup END
+"add custom/unknown filetypes
+autocmd BufNewFile,BufRead *.plan set filetype=plan
+autocmd BufNewFile,BufRead *.tsv set filetype=tsv
