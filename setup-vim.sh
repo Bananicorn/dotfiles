@@ -13,3 +13,7 @@ cd ~/.vim/plugin
 git clone "https://github.com/scrooloose/nerdcommenter"
 git clone "https://github.com/wesQ3/vim-windowswap"
 git clone "https://github.com/editorconfig/editorconfig-vim"
+
+#Plugin for language-server protocol and linting
+#mkdir -p ~/.vim/pack/git-plugins/start
+#git clone --depth 1 https://github.com/dense-analysis/ale.git ~/.vim/pack/git-plugins/start/ale

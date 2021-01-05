@@ -16,6 +16,7 @@ set guioptions-=m
 
 "a bit more readable
 set guifont=Lucida_Console:h10
+"set guifont=font-3270
 
 "make backspace behave normally in insert mode
 set backspace=indent,eol,start
@@ -44,20 +45,30 @@ set fileencoding=utf-8
 syntax on
 filetype indent plugin on
 
+"ignore whitespace when diffing
+set diffopt+=iwhite
+
 "Akin to intellisense
 "I should set this up to work with <C-N>
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
 "colorscheme zellner
-colorscheme gentooish "available in the void-package vim-colorschemes
-"colorscheme holokai "available in the void-package vim-colorschemes
+"available in the void-package vim-colorschemes
+"colorscheme gentooish
+"colorscheme holokai
+"colorscheme maui "the line numbers here are terribly faint
+colorscheme elda
 
 "always underline spelling errors instead of making their background red
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=red
 
-"for indentating html - otherwise these tags are not recognized
+"warn me when I get over 140 columns
+"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+"match OverLength /\%141v.\+/
+
+"for indenting html - otherwise these tags are not recognized
 let g:html_indent_inctags = "html,body,head,tbody,table,td,tr,th,canvas"
 
 "whitespace
@@ -125,3 +136,13 @@ nnoremap <silent> <esc><esc> :noh<CR>
 "add custom/unknown filetypes
 autocmd BufNewFile,BufRead *.plan set filetype=plan
 autocmd BufNewFile,BufRead *.tsv set filetype=tsv
+
+"config of ale for linting and stuff
+let g:ale_linters = {
+	\   'javascript': ['eslint'],
+\}
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lintdelay = 1000
+"FINALLY YES
+nnoremap gd :ALEGoToDefinition<CR>
+nnoremap gfr :ALEFindReferences<CR>
