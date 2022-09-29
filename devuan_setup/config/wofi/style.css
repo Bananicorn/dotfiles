@@ -1,0 +1,22 @@
+window {
+	background: transparent;
+}
+
+#input {
+	background: #222;
+	color: #FFF;
+}
+
+#inner-box {
+	background: #222;
+	color: #FFF;
+}
+
+#outer-box {
+}
+
+#scroll {
+}
+
+#text {
+}

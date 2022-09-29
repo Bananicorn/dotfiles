@@ -1,12 +1,11 @@
 #!/bin/bash
 ln -s ~/dotfiles/.vimrc ~/.vimrc
-mkdir ~/.vim
-mkdir ~/.vim/plugin
+mkdir -p ~/.vim/plugin
 mkdir ~/.vim/undofiles
 mkdir ~/.vim/swapfiles
 mkdir ~/.vim/sessions
 
-ln -s ~/dotfiles/.vim/ftplugin ~/.vim/
+ln -s ~/dotfiles/vim/ftplugin ~/.vim/
 
 #install all the plugins
 cd ~/.vim/plugin

@@ -13,7 +13,7 @@ floating_modifier $Mod
 
 # kill focused window
 bindsym $Mod+Shift+q kill
-bindsym Mod1+F4 kill
+bindsym Mod1+F4 exec "swaynag -t warning -m '' -B 'Poweroff' 'sudo poweroff' -B 'Reboot' 'sudo reboot'"
 
 # change focus
 bindsym $Mod+$left focus left
@@ -55,22 +55,6 @@ bindsym $Mod+Shift+w layout toggle split
 
 # toggle tiling / floating
 bindsym $Mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $Mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $Mod+a focus parent
-
-# focus the child container
-bindsym $Mod+d focus child
-
-# move the currently focused window to the scratchpad
-bindsym $Mod+Shift+minus move scratchpad
-
-# Show the next scratchpad window or hide the focused scratchpad window.
-# If there are multiple scratchpad windows, this command cycles through them.
-bindsym $Mod+minus scratchpad show
 
 # switch to workspace
 bindsym $Mod+1 workspace 1
@@ -122,24 +106,30 @@ mode "resize" {
 		bindsym Escape mode "default"
 }
 
+#device specifig config
+input 1:1:AT_Translated_Set_2_keyboard {
+	xkb_layout de
+}
+
+input 1267:12299:ELAN0501:00_04F3:300B_Touchpad {
+	tap enabled
+	natural_scroll disabled
+	dwt enabled
+}
+
 bindsym $Mod+r mode "resize"
 # reload the configuration file
 bindsym $Mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# restart sway inplace (preserves your layout/session, can be used to upgrade sway)
 bindsym $Mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $Mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $Mod+Space exec "wofi -S run"
+# exit sway
+bindsym $Mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your sway session.' -b 'Yes, exit sway' 'swaymsg exit'"
 
 # PROGRAM SHORTCUTS
-# bindsym $Mod+Return exec i3-sensible-terminal
-bindsym $Mod+Shift+Return exec xterm
-bindsym $Mod+Return exec st
-bindsym $Mod+Shift+f exec firefox
-bindsym $Mod+Shift+m exec midori
-bindsym $Mod+e exec pcmanfm
+bindsym $Mod+Return exec foot
+#bindsym $Mod+e exec pcmanfm
 bindsym Print exec flameshot gui
-bindsym --release Pause exec slock
-bindsym $Mod+Shift+s exec ~/scripts/autoconnect_workspace.sh
 
 # VOLUME
 bindsym XF86AudioRaiseVolume exec amixer sset Master 5+
@@ -148,12 +138,15 @@ bindsym XF86AudioMute exec amixer sset Master toggle
 
 # just some cosmetic options
 
-new_window 1pixel
+#client.default_window pixel
 #class				border  backgr. text    indicator child_border
 client.background	#222222 #222222
 client.focused		#33DD33 #222222 #FFFFFF #33DD33 #33DD33
+#default_window		pixel
+
+for_window [app_id="connman-gtk"] floating enable
 
 # AUTOSTART
-exec i3-msg 'workspace 1; exec firefox'; sleep 1; exec i3-msg 'workspace 2; exec st'
-exec ~/scripts/autoconnect_workspace.sh
+#exec i3-msg 'workspace 1; exec firefox'; sleep 1; exec i3-msg 'workspace 2; exec st'
+#exec ~/scripts/autoconnect_workspace.sh
 

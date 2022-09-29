@@ -1,6 +1,0 @@
-fish_vi_key_bindings
-alias push 'sh ./push.sh'
-alias pull 'sh ./pull.sh'
-alias asc2mid 'sh ~/midi2asc2midi/asc2mid.out'
-alias mid2asc 'sh ~/midi2asc2midi/mid2asc.out'
-alias redgui 'sh wine /home/bc/red/red-063.exe'

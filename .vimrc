@@ -53,12 +53,7 @@ set diffopt+=iwhite
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
-"colorscheme zellner
-"available in the void-package vim-colorschemes
-"colorscheme gentooish
-"colorscheme holokai
-"colorscheme maui "the line numbers here are terribly faint
-colorscheme elda
+colorscheme zellner
 
 "always underline spelling errors instead of making their background red
 hi clear SpellBad
