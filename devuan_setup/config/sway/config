@@ -1,5 +1,3 @@
-font pango:monospace 8
-
 #directions
 set $up k
 set $down j
@@ -13,7 +11,7 @@ floating_modifier $Mod
 
 # kill focused window
 bindsym $Mod+Shift+q kill
-bindsym Mod1+F4 exec "swaynag -t warning -m '' -B 'Poweroff' 'sudo poweroff' -B 'Reboot' 'sudo reboot'"
+bindsym Mod1+F4 kill, exec "swaynag -t warning -m 'Shut down?' -B 'Shut down' 'sudo poweroff' -B 'Reboot' 'sudo reboot'"
 
 # change focus
 bindsym $Mod+$left focus left
@@ -128,7 +126,7 @@ bindsym $Mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut.
 
 # PROGRAM SHORTCUTS
 bindsym $Mod+Return exec foot
-#bindsym $Mod+e exec pcmanfm
+bindsym $Mod+e exec thunar
 bindsym Print exec flameshot gui
 
 # VOLUME
@@ -138,11 +136,10 @@ bindsym XF86AudioMute exec amixer sset Master toggle
 
 # just some cosmetic options
 
-#client.default_window pixel
 #class				border  backgr. text    indicator child_border
 client.background	#222222 #222222
 client.focused		#33DD33 #222222 #FFFFFF #33DD33 #33DD33
-#default_window		pixel
+default_border		pixel
 
 for_window [app_id="connman-gtk"] floating enable
 

@@ -24,11 +24,15 @@ ln -s ~/dotfiles/devuan_setup/config/wofi/style.css ~/.config/wofi/style.css
 #wifi and bluetooth
 apt install -y connman-gtk
 
+#automount external drives
+apt install -y udiskie
+
 #actual programs
 apt install -y firefox-esr
 apt install -y inkscape
 apt install -y flameshot
 apt install -y thunar
+apt remove -y thunar-volman
 
 apt install -y docker
 apt install -y docker-compose
