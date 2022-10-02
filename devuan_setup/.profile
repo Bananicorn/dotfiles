@@ -6,6 +6,7 @@ export XKB_DEFAULT_LAYOUT=de
 export QT_QPA_PLATFORM=wayland
 export GDK_BACKEND=wayland
 export MOZ_ENABLE_WAYLAND=1
+export XDG_SESSION_TYPE=wayland
 
 udiskie &
 sway

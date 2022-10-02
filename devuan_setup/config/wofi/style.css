@@ -5,6 +5,8 @@ window {
 #input {
 	background: #222;
 	color: #FFF;
+	border-radius: 0;
+	border: 2px solid #33DD33;
 }
 
 #inner-box {
@@ -12,11 +14,21 @@ window {
 	color: #FFF;
 }
 
-#outer-box {
+#entry {
+	border-left: 2px solid #33DD33;
+	border-right: 2px solid #33DD33;
 }
 
-#scroll {
+#entry:last-child {
+	border-bottom: 2px solid #33DD33;
 }
 
-#text {
+#entry:selected {
+	background-color: #33DD33;
+	border: none;
+	outline: none;
+}
+
+#entry:selected #text {
+	color: #222;
 }

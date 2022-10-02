@@ -20,6 +20,7 @@ apt install -y alsa-utils
 apt install -y wofi
 mkdir -p .config/wofi
 ln -s ~/dotfiles/devuan_setup/config/wofi/style.css ~/.config/wofi/style.css
+ln -s ~/dotfiles/devuan_setup/config/wofi/config ~/.config/wofi/config
 
 #wifi and bluetooth
 apt install -y connman-gtk

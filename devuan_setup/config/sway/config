@@ -120,7 +120,7 @@ bindsym $Mod+r mode "resize"
 bindsym $Mod+Shift+c reload
 # restart sway inplace (preserves your layout/session, can be used to upgrade sway)
 bindsym $Mod+Shift+r restart
-bindsym $Mod+Space exec "wofi -S run"
+bindsym $Mod+Space exec "wofi"
 # exit sway
 bindsym $Mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your sway session.' -b 'Yes, exit sway' 'swaymsg exit'"
 
