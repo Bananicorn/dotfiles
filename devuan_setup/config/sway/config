@@ -129,6 +129,10 @@ bindsym $Mod+Return exec foot
 bindsym $Mod+e exec thunar
 bindsym Print exec flameshot gui
 
+# SCREEN BACKLIGHT
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+
 # VOLUME
 bindsym XF86AudioRaiseVolume exec amixer sset Master 5+
 bindsym XF86AudioLowerVolume exec amixer sset Master 5-

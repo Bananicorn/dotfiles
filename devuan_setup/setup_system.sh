@@ -16,6 +16,9 @@ ln -s ~/dotfiles/devuan_setup/.profile ~/.profile
 #let there be sound!
 apt install -y alsa-utils
 
+#screen brightness control
+apt install -y brightnessctl
+
 #launcher
 apt install -y wofi
 mkdir -p .config/wofi
