@@ -1,3 +1,12 @@
+#clipboard manager
+exec wl-paste -t text --watch clipman store
+
+#screens!
+output HDMI-A-1 pos 1920 0
+output eDP-1 pos 0 0
+workspace 1 output eDP-1
+workspace 2 output HDMI-A-1
+
 #directions
 set $up k
 set $down j
@@ -134,9 +143,9 @@ bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 
 # VOLUME
-bindsym XF86AudioRaiseVolume exec amixer sset Master 5+
-bindsym XF86AudioLowerVolume exec amixer sset Master 5-
-bindsym XF86AudioMute exec amixer sset Master toggle
+bindsym XF86AudioRaiseVolume exec pulsemixer --change-volume +5
+bindsym XF86AudioLowerVolume exec pulsemixer --change-volume -5
+bindsym XF86AudioMute exec pulsemixer --toggle-mute
 
 # just some cosmetic options
 
@@ -146,6 +155,7 @@ client.focused		#33DD33 #222222 #FFFFFF #33DD33 #33DD33
 default_border		pixel
 
 for_window [app_id="connman-gtk"] floating enable
+for_window [app_id="love-11.3"] floating enable
 
 # AUTOSTART
 #exec i3-msg 'workspace 1; exec firefox'; sleep 1; exec i3-msg 'workspace 2; exec st'
