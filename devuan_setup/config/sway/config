@@ -1,6 +1,12 @@
 #clipboard manager
 exec wl-paste -t text --watch clipman store
 
+#bar for brigtness/sound
+set $WOBSOCK_VOLUME $XDG_RUNTIME_DIR/wob_volume.sock
+set $WOBSOCK_BRIGHTNESS $XDG_RUNTIME_DIR/wob_brightness.sock
+exec rm -f $WOBSOCK_VOLUME && mkfifo $WOBSOCK_VOLUME && tail -f $WOBSOCK_VOLUME | wob --anchor top --anchor right --offset 0 --border 2 --margin 16 --padding 16 --height 64 --border-color "#FF33DD33" --background-color "#FF333333" --bar-color "#FF33DD33" --max 150
+exec rm -f $WOBSOCK_BRIGHTNESS && mkfifo $WOBSOCK_BRIGHTNESS && tail -f $WOBSOCK_BRIGHTNESS | wob --anchor top --anchor right --offset 0 --border 2 --margin 16 --padding 16 --height 64 --border-color "#FF33DD33" --background-color "#FF333333" --bar-color "#FFFFEE00" --max 187 #wtf, brightnessctl?
+
 #screens!
 output HDMI-A-1 pos 1920 0
 output eDP-1 pos 0 0
@@ -139,12 +145,12 @@ bindsym $Mod+e exec thunar
 bindsym Print exec flameshot gui
 
 # SCREEN BACKLIGHT
-bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
-bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%- && brightnessctl g > $WOBSOCK_BRIGHTNESS
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+ && brightnessctl g > $WOBSOCK_BRIGHTNESS
 
 # VOLUME
-bindsym XF86AudioRaiseVolume exec pulsemixer --change-volume +5
-bindsym XF86AudioLowerVolume exec pulsemixer --change-volume -5
+bindsym XF86AudioRaiseVolume exec pulsemixer --change-volume +5 && pulsemixer --get-volume | grep -oP "^\d+" > $WOBSOCK_VOLUME
+bindsym XF86AudioLowerVolume exec pulsemixer --change-volume -5 && pulsemixer --get-volume | grep -oP "^\d+" > $WOBSOCK_VOLUME
 bindsym XF86AudioMute exec pulsemixer --toggle-mute
 
 # just some cosmetic options

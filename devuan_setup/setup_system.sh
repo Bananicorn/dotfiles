@@ -28,6 +28,9 @@ apt install -y bluez-tools
 #screen brightness control
 apt install -y brightnessctl
 
+#displays "progress" bars - used for brightness and volume
+apt install -y wob
+
 #launcher
 apt install -y wofi
 mkdir -p .config/wofi
