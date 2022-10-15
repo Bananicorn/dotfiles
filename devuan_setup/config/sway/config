@@ -1,11 +1,16 @@
-#clipboard manager
-exec wl-paste -t text --watch clipman store
+#background
+exec swaybg -i ~/pictures/Reptiles_Iguana_449225.jpg
 
-#bar for brigtness/sound
+#we always seem to start mute, and that seems to mess with firefox
+exec pulsemixer --unmute
+
+#bar for brigtness/sound/battery
 set $WOBSOCK_VOLUME $XDG_RUNTIME_DIR/wob_volume.sock
 set $WOBSOCK_BRIGHTNESS $XDG_RUNTIME_DIR/wob_brightness.sock
+set $WOBSOCK_BATTERY $XDG_RUNTIME_DIR/wob_battery.sock
 exec rm -f $WOBSOCK_VOLUME && mkfifo $WOBSOCK_VOLUME && tail -f $WOBSOCK_VOLUME | wob --anchor top --anchor right --offset 0 --border 2 --margin 16 --padding 16 --height 64 --border-color "#FF33DD33" --background-color "#FF222222" --bar-color "#FF33DD33" --max 150
 exec rm -f $WOBSOCK_BRIGHTNESS && mkfifo $WOBSOCK_BRIGHTNESS && tail -f $WOBSOCK_BRIGHTNESS | wob --anchor top --anchor right --offset 0 --border 2 --margin 16 --padding 16 --height 64 --border-color "#FF33DD33" --background-color "#FF222222" --bar-color "#FFFFEE00" --max 187 #wtf, brightnessctl?
+exec rm -f $WOBSOCK_BATTERY && mkfifo $WOBSOCK_BATTERY && tail -f $WOBSOCK_BATTERY | wob --anchor top --anchor left --offset 0 --border 2 --margin 16 --padding 16 --height 64 --border-color "#FF33DD33" --background-color "#FF222222" --bar-color "#FF0033EE" --max 100
 
 #screens!
 output HDMI-A-1 pos 1920 0
@@ -122,6 +127,7 @@ mode "resize" {
 #device specifig config
 input 1:1:AT_Translated_Set_2_keyboard {
 	xkb_options caps:escape
+	xkb_numlock enable
 	xkb_layout de
 }
 
@@ -154,6 +160,9 @@ bindsym XF86AudioRaiseVolume exec ~/scripts/volume_handler.sh "+" "$WOBSOCK_VOLU
 bindsym XF86AudioLowerVolume exec ~/scripts/volume_handler.sh "-" "$WOBSOCK_VOLUME"
 bindsym XF86AudioMute exec ~/scripts/volume_handler.sh "m" "$WOBSOCK_VOLUME"
 
+# BATTERY INDICATOR
+bindsym $Mod+b exec acpi | grep -Po '(\d+)(?=%)' > $WOBSOCK_BATTERY
+
 # just some cosmetic options
 
 #class				border  backgr. text    indicator child_border
@@ -163,8 +172,3 @@ default_border		pixel
 
 for_window [app_id="connman-gtk"] floating enable
 for_window [app_id="love-11.3"] floating enable
-
-# AUTOSTART
-#exec i3-msg 'workspace 1; exec firefox'; sleep 1; exec i3-msg 'workspace 2; exec st'
-#exec ~/scripts/autoconnect_workspace.sh
-

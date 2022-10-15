@@ -28,6 +28,10 @@ apt install -y bluez-tools
 #screen brightness control
 apt install -y brightnessctl
 
+#battery measurement
+apt install -y acpi
+apt install -y acpid
+
 #displays "progress" bars - used for brightness and volume
 apt install -y wob
 
@@ -44,9 +48,6 @@ apt install -y connman-gtk
 
 #automount external drives
 apt install -y udiskie
-
-#clipboard manager
-apt install -y clipman
 
 #love2d stuff
 apt install -y love
