@@ -31,7 +31,7 @@ floating_modifier $Mod
 
 # kill focused window
 bindsym $Mod+Shift+q kill
-bindsym Mod1+F4 kill, exec "swaynag -t warning -m 'Shut down?' -B 'Shut down' 'sudo poweroff' -B 'Reboot' 'sudo reboot'"
+bindsym Mod1+F4 kill, exec "~/scripts/shutdown_handler.sh"
 
 # change focus
 bindsym $Mod+$left focus left
@@ -172,3 +172,4 @@ default_border		pixel
 
 for_window [app_id="connman-gtk"] floating enable
 for_window [app_id="love-11.3"] floating enable
+for_window [app_id="zenity"] floating enable

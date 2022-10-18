@@ -14,6 +14,9 @@ rm -rf ~/.profile
 ln -s ~/dotfiles/devuan_setup/.profile ~/.profile
 ln -s ~/dotfiles/devuan_setup/config/user-dirs.dirs ~/.config/
 
+#dialog boxes
+apt install -y zenity
+
 #image viewer
 apt install -y imv
 
