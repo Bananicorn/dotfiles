@@ -14,6 +14,10 @@ rm -rf ~/.profile
 ln -s ~/dotfiles/devuan_setup/.profile ~/.profile
 ln -s ~/dotfiles/devuan_setup/config/user-dirs.dirs ~/.config/
 
+#install terminal emulator
+apt install -y foot
+ln -s ~/dotfiles/devuan_setup/config/foot ~/.config/foot
+
 #dialog boxes
 apt install -y zenity
 
