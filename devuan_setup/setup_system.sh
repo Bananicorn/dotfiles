@@ -4,6 +4,7 @@
 apt install -y vim
 ~/dotfiles/setup-vim.sh
 apt install -y git
+cp ./scripts/vimv /usr/bin
 
 #window manager
 apt install -y sway
@@ -20,6 +21,9 @@ ln -s ~/dotfiles/devuan_setup/config/foot ~/.config/foot
 
 #dialog boxes
 apt install -y zenity
+
+#gtk themes and whatnot
+ln -s ~/dotfiles/devuan_setup/themes/ ~/.themes
 
 #image viewer
 apt install -y imv
@@ -78,3 +82,4 @@ DOCKER_COMPOSE_VERSION=$(curl --silent https://api.github.com/repos/docker/compo
 DOCKER_COMPOSE_PATH=/usr/local/bin/docker-compose
 curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-Linux-x86_64 -o $DOCKER_COMPOSE_PATH
 chmod 755 $DOCKER_COMPOSE_PATH
+#flatpak install flathub org.freedesktop.Platform/x86_64/19.08
