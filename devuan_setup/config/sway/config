@@ -134,7 +134,7 @@ input 1:1:AT_Translated_Set_2_keyboard {
 input 1267:12299:ELAN0501:00_04F3:300B_Touchpad {
 	tap enabled
 	natural_scroll disabled
-	dwt enabled
+	dwt disabled
 }
 
 bindsym $Mod+r mode "resize"
@@ -149,7 +149,7 @@ bindsym $Mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut.
 # PROGRAM SHORTCUTS
 bindsym $Mod+Return exec foot
 bindsym $Mod+e exec thunar
-bindsym Print exec flameshot gui
+bindsym Print exec grimshot save area
 
 # SCREEN BACKLIGHT
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%- && brightnessctl g > $WOBSOCK_BRIGHTNESS
@@ -171,5 +171,7 @@ client.focused		#33DD33 #222222 #FFFFFF #33DD33 #33DD33
 default_border		pixel
 
 for_window [app_id="connman-gtk"] floating enable
-for_window [app_id="love-11.3"] floating enable
+for_window [class="love-11.3"] floating enable
+for_window [class="love-11.4"] floating enable
+for_window [title="Panda"] floating enable
 for_window [app_id="zenity"] floating enable

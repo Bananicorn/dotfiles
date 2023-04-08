@@ -64,7 +64,7 @@ apt install -y apktool
 apt install -y zsh
 apt install -y firefox-esr
 apt install -y inkscape
-apt install -y flameshot
+apt install -y grimshot
 apt install -y thunar
 apt remove -y thunar-volman
 
