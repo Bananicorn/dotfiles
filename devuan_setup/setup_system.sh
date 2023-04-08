@@ -22,9 +22,6 @@ ln -s ~/dotfiles/devuan_setup/config/foot ~/.config/foot
 #dialog boxes
 apt install -y zenity
 
-#gtk themes and whatnot
-ln -s ~/dotfiles/devuan_setup/themes/ ~/.themes
-
 #image viewer
 apt install -y imv
 
