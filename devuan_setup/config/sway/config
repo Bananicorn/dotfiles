@@ -1,5 +1,5 @@
 #background
-exec swaybg -i ~/pictures/Reptiles_Iguana_449225.jpg
+#exec swaybg -i ~/pictures/insert_background_here.jpg
 
 #we always seem to start mute, and that seems to mess with firefox
 exec pulsemixer --unmute
@@ -149,7 +149,7 @@ bindsym $Mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut.
 # PROGRAM SHORTCUTS
 bindsym $Mod+Return exec foot
 bindsym $Mod+e exec thunar
-bindsym Print exec grimshot save area
+bindsym Print exec grimshot save area ~/screenshots/$(date "+2023-11-25_20-27-33").png
 
 # SCREEN BACKLIGHT
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%- && brightnessctl g > $WOBSOCK_BRIGHTNESS
@@ -170,8 +170,18 @@ client.background	#222222 #222222
 client.focused		#33DD33 #222222 #FFFFFF #33DD33 #33DD33
 default_border		pixel
 
-for_window [app_id="connman-gtk"] floating enable
-for_window [class="love-11.3"] floating enable
-for_window [class="love-11.4"] floating enable
-for_window [title="Panda"] floating enable
-for_window [app_id="zenity"] floating enable
+for_window {
+	[app_id="connman-gtk"] floating enable
+	[app_id="firefox"] inhibit_idle fullscreen
+	[app_id="(?i)firefox"] inhibit_idle fullscreen
+	[class="love-11.3"] floating enable
+	[class="love-11.4"] floating enable
+	[title="Panda"] floating enable
+	[app_id="zenity"] floating enable
+	[window_role="pop-up"] floating enable
+	[window_role="bubble"] floating enable
+	[window_role="dialog"] floating enable
+	[window_type="dialog"] floating enable
+	[title="(?:Open|Save) (?:File|Folder|As)"] floating enable
+	[title="Sharing Indicator"] floating enable, move position 1500 0
+}

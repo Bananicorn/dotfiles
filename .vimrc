@@ -53,7 +53,7 @@ set diffopt+=iwhite
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
-colorscheme zellner
+colorscheme torte
 
 "always underline spelling errors instead of making their background red
 hi clear SpellBad
