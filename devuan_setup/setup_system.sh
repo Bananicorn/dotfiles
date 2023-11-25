@@ -18,8 +18,10 @@ sudo apt install -y sway
 sudo apt install -y swaybg
 ln -sn ~/dotfiles/devuan_setup/config/sway ~/.config/sway
 rm -rf ~/.profile
+rm -rf ~/.bashrc
 ln -sn ~/dotfiles/devuan_setup/.profile ~/.profile
 ln -sn ~/dotfiles/devuan_setup/config/user-dirs.dirs ~/.config/
+ln -sn ~/dotfiles/devuan_setup/.bashrc ~/.bashrc
 
 #install terminal emulator
 sudo apt install -y foot
