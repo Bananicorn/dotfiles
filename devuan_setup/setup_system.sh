@@ -22,6 +22,7 @@ rm -rf ~/.bashrc
 ln -sn ~/dotfiles/devuan_setup/.profile ~/.profile
 ln -sn ~/dotfiles/devuan_setup/config/user-dirs.dirs ~/.config/
 ln -sn ~/dotfiles/devuan_setup/.bashrc ~/.bashrc
+ln -sn ~/dotfiles/devuan_setup/scripts ~/scripts
 
 #install terminal emulator
 sudo apt install -y foot
@@ -49,6 +50,7 @@ sudo apt install -y acpid
 #displays "progress" bars - used for brightness and volume
 #sway config contains the named pipes necessary for it to work with my shortcuts
 sudo apt install -y wob
+ln -sn ~/dotfiles/devuan_setup/config/wob ~/.config/wob
 
 #launcher
 sudo apt install -y wofi

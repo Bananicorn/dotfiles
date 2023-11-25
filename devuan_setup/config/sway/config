@@ -7,9 +7,9 @@ exec /usr/libexec/xdg-desktop-portal -r & /usr/libexec/xdg-desktop-portal-wlr
 set $WOBSOCK_VOLUME $XDG_RUNTIME_DIR/wob_volume.sock
 set $WOBSOCK_BRIGHTNESS $XDG_RUNTIME_DIR/wob_brightness.sock
 set $WOBSOCK_BATTERY $XDG_RUNTIME_DIR/wob_battery.sock
-exec rm -f $WOBSOCK_VOLUME && mkfifo $WOBSOCK_VOLUME && tail -f $WOBSOCK_VOLUME | wob --anchor top --anchor right --offset 0 --border 2 --margin 16 --padding 16 --height 64 --border-color "#FF33DD33" --background-color "#FF222222" --bar-color "#FF33DD33" --max 150
-exec rm -f $WOBSOCK_BRIGHTNESS && mkfifo $WOBSOCK_BRIGHTNESS && tail -f $WOBSOCK_BRIGHTNESS | wob --anchor top --anchor right --offset 0 --border 2 --margin 16 --padding 16 --height 64 --border-color "#FF33DD33" --background-color "#FF222222" --bar-color "#FFFFEE00" --max 187 #wtf, brightnessctl?
-exec rm -f $WOBSOCK_BATTERY && mkfifo $WOBSOCK_BATTERY && tail -f $WOBSOCK_BATTERY | wob --anchor top --anchor left --offset 0 --border 2 --margin 16 --padding 16 --height 64 --border-color "#FF33DD33" --background-color "#FF222222" --bar-color "#FF0033EE" --max 100
+exec rm -f $WOBSOCK_VOLUME && mkfifo $WOBSOCK_VOLUME && tail -f $WOBSOCK_VOLUME | wob -c config/wob/wob-volume.ini
+exec rm -f $WOBSOCK_BRIGHTNESS && mkfifo $WOBSOCK_BRIGHTNESS && tail -f $WOBSOCK_BRIGHTNESS | wob -c config/wob/wob-brightness.ini
+exec rm -f $WOBSOCK_BATTERY && mkfifo $WOBSOCK_BATTERY && tail -f $WOBSOCK_BATTERY | wob -c config/wob/wob.ini
 
 #screens!
 output HDMI-A-1 pos 1920 0
