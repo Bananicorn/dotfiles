@@ -31,14 +31,13 @@ ln -sn ~/dotfiles/devuan_setup/config/foot ~/.config/foot
 sudo apt install -y zenity
 
 #let there be sound (over bluetooth too)!
-sudo apt install -y pulseaudio
-sudo apt install -y pulseaudio-module-bluetooth
+sudo apt install -y pipewire
+sudo apt install -y pipewire-pulse
+sudo apt install -y xdg-desktop-portal-wlr
 sudo apt install -y pulsemixer
 sudo apt install -y bluez
 sudo apt install -y bluez-firmware
 sudo apt install -y bluez-tools
-sudo apt install pipewire
-sudo apt install pipewire-pulse
 
 #screen brightness control
 sudo apt install -y brightnessctl

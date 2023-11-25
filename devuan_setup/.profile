@@ -8,6 +8,7 @@ export GDK_BACKEND=wayland
 export MOZ_ENABLE_WAYLAND=1
 export XDG_SESSION_TYPE=wayland
 export XDG_DATA_HOME=~/.local/share
+export XDG_CURRENT_DESKTOP="${XDG_CURRENT_DESKTOP:-sway}"
 
 #-- ensure XDG_Runtime_dir is set
 if test -z "${XDG_RUNTIME_DIR}"; then
@@ -20,4 +21,4 @@ if test -z "${XDG_RUNTIME_DIR}"; then
 fi
 
 udiskie &
-sway
+dbus-run-session sway

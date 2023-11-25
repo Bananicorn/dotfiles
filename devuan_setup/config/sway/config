@@ -1,8 +1,7 @@
 #background
 #exec swaybg -i ~/pictures/insert_background_here.jpg
 
-#we always seem to start mute, and that seems to mess with firefox
-exec pulsemixer --unmute
+exec /usr/libexec/xdg-desktop-portal -r & /usr/libexec/xdg-desktop-portal-wlr
 
 #bar for brigtness/sound/battery
 set $WOBSOCK_VOLUME $XDG_RUNTIME_DIR/wob_volume.sock
