@@ -9,6 +9,9 @@ export MOZ_ENABLE_WAYLAND=1
 export XDG_SESSION_TYPE=wayland
 export XDG_DATA_HOME=~/.local/share
 export XDG_CURRENT_DESKTOP="${XDG_CURRENT_DESKTOP:-sway}"
+export WOBSOCK_VOLUME="${XDG_RUNTIME_DIR}/wob_volume.sock"
+export WOBSOCK_BRIGHTNESS="${XDG_RUNTIME_DIR}/wob_brightness.sock"
+export WOBSOCK_BATTERY="${XDG_RUNTIME_DIR}/wob_battery.sock"
 
 #-- ensure XDG_Runtime_dir is set
 if test -z "${XDG_RUNTIME_DIR}"; then

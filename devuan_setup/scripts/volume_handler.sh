@@ -9,9 +9,9 @@ else
 fi
 
 VOLUME=$(pulsemixer --get-volume | grep -oP "^\d+")
-COLORS="#FF222222 #FF33DD33 #FFFF0000"
+COLORS="222222FF 33DD33FF FF0000FF"
 if [ $(pulsemixer --get-mute) = "0" ]; then
-	COLORS="#FF222222 #FF33DD33 #FF33DD33"
+	COLORS="222222FF 33DD33FF 33DD33FF"
 fi
 
 echo "$VOLUME $COLORS" > $2
