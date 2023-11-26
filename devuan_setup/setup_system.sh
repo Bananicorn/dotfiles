@@ -7,11 +7,11 @@ sudo apt install -y git
 cp ./scripts/vimv /usr/bin
 
 #make home folders I'll need
-mdkir -p ~/screenshots
-mdkir -p ~/pictures
-mdkir -p ~/shared
-mdkir -p ~/downloads
-mdkir -p ~/.config
+mkdir -p ~/screenshots
+mkdir -p ~/pictures
+mkdir -p ~/shared
+mkdir -p ~/downloads
+mkdir -p ~/.config
 
 #window manager
 sudo apt install -y sway
