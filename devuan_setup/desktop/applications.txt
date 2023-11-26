@@ -1,0 +1,7 @@
+firefox-esr
+chromium
+connman-gtk --no-icon
+keepassxc
+thunar
+inkscape
+blender

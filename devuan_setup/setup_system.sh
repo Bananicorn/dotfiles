@@ -56,7 +56,8 @@ ln -sn ~/dotfiles/devuan_setup/config/wob ~/.config/wob
 sudo apt install -y wofi
 ln -sn ~/dotfiles/devuan_setup/config/wofi ~/.config/wofi
 #wofi will search for desktop files in here
-mkdir -p ~/.local/share/applications
+mkdir -p ~/desktop
+ln -sn ~/dotfiles/devuan_setup/desktop/applications.txt ~/desktop/applications.txt
 
 #automount external drives
 sudo apt install -y udiskie
