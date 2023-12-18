@@ -71,6 +71,7 @@ sudo apt install -y zsh
 sudo apt install -y firefox-esr
 sudo apt install -y inkscape
 sudo apt install -y keepassxc
+sudo apt install -y calibre
 sudo apt install -y thunar
 sudo apt remove -y thunar-volman
 

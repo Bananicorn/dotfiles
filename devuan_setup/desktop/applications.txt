@@ -5,3 +5,4 @@ keepassxc
 thunar
 inkscape
 blender
+calibre
