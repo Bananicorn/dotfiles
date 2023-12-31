@@ -24,6 +24,9 @@ ln -sn ~/dotfiles/devuan_setup/config/user-dirs.dirs ~/.config/
 ln -sn ~/dotfiles/devuan_setup/.bashrc ~/.bashrc
 ln -sn ~/dotfiles/devuan_setup/scripts ~/scripts
 
+#so pasting works in the vim in the terminal
+sudo apt install -y wl-clipboard
+
 #install terminal emulator
 sudo apt install -y foot
 ln -sn ~/dotfiles/devuan_setup/config/foot ~/.config/foot
@@ -72,7 +75,9 @@ sudo apt install -y firefox-esr
 sudo apt install -y inkscape
 sudo apt install -y keepassxc
 sudo apt install -y calibre
+sudo apt install -y filezilla
 sudo apt install -y thunar
+sudo apt install -y krita
 sudo apt remove -y thunar-volman
 
 #screenshots

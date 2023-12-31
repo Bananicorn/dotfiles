@@ -1,8 +1,10 @@
-firefox-esr
-chromium
-connman-gtk --no-icon
-keepassxc
-thunar
-inkscape
 blender
 calibre
+chromium
+connman-gtk --no-icon
+filezilla
+firefox-esr
+inkscape
+keepassxc
+thunar
+krita

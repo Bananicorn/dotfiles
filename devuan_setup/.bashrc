@@ -58,3 +58,7 @@ bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 
 set -o vi
+export PICO_SDK_PATH=~/picosystem/pico/pico-sdk
+export PICO_EXAMPLES_PATH=~/picosystem/pico/pico-examples
+export PICO_EXTRAS_PATH=~/picosystem/pico/pico-extras
+export PICO_PLAYGROUND_PATH=~/picosystem/pico/pico-playground
