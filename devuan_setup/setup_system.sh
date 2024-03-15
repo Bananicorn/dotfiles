@@ -97,3 +97,9 @@ chmod 755 $DOCKER_COMPOSE_PATH
 
 #wifi and bluetooth
 sudo apt install -y connman-gtk
+
+#give user ability to shutdown
+sudo groupadd wheel
+sudo adduser bc wheel
+echo "%wheel ALL= NOPASSWD: /sbin/shutdown" | sudo tee -a /etc/sudoers > /dev/null
+echo "%wheel ALL= NOPASSWD: /sbin/reboot" | sudo tee -a /etc/sudoers > /dev/null
