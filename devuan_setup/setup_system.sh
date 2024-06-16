@@ -5,12 +5,14 @@ sudo apt install -y vim
 ~/dotfiles/setup-vim.sh
 sudo apt install -y git
 cp ./scripts/vimv /usr/bin
+cp ./scripts/sync_keepass.sh
 
 #make home folders I'll need
 mkdir -p ~/screenshots
 mkdir -p ~/pictures
 mkdir -p ~/shared
 mkdir -p ~/downloads
+mkdir -p ~/util
 mkdir -p ~/.config
 
 #window manager
@@ -78,6 +80,7 @@ sudo apt install -y calibre
 sudo apt install -y filezilla
 sudo apt install -y thunar
 sudo apt install -y krita
+sudo apt install -y lftp
 sudo apt remove -y thunar-volman
 
 #screenshots
