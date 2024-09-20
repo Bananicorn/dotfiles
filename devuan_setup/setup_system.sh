@@ -17,6 +17,7 @@ mkdir -p ~/.config
 
 #window manager
 sudo apt install -y sway
+sudo apt install -y xwayland #honestly half the shit I'm running still needs that
 sudo apt install -y swaybg
 ln -sn ~/dotfiles/devuan_setup/config/sway ~/.config/sway
 rm -rf ~/.profile
@@ -89,7 +90,6 @@ sudo apt install -y grimshot
 #work stuff
 sudo apt install -y git-flow
 sudo apt install -y docker.io
-sudo apt install -y docker-compose
 sudo apt install -y npm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 DOCKER_COMPOSE_VERSION=$(curl --silent https://api.github.com/repos/docker/compose/releases/latest | grep -Po '"tag_name": "\K.*\d')
@@ -100,9 +100,21 @@ chmod 755 $DOCKER_COMPOSE_PATH
 
 #wifi and bluetooth
 sudo apt install -y connman-gtk
+sudo apt purge -y isc-dhcp-client
+sudo apt purge -y isc-dhcp-common
+
+sudo systemctl start systemd-networkd
+sudo systemctl enable systemd-networkd
+
+echo "For every interface in 'ip link', create a File like '/etc/systemd/network/05-wlp1s0.network', with the following content, adjusted for the interface:"
+echo "[Match]"
+echo "Name=wlp1s0"
+echo "[Network]"
+echo "DHCP=yes"
 
 #give user ability to shutdown
 sudo groupadd wheel
 sudo adduser bc wheel
+#sudo adduser wf wheel
 echo "%wheel ALL= NOPASSWD: /sbin/shutdown" | sudo tee -a /etc/sudoers > /dev/null
 echo "%wheel ALL= NOPASSWD: /sbin/reboot" | sudo tee -a /etc/sudoers > /dev/null
