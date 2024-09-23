@@ -19,6 +19,7 @@ mkdir -p ~/.config
 sudo apt install -y sway
 sudo apt install -y xwayland #honestly half the shit I'm running still needs that
 sudo apt install -y swaybg
+sudo apt install -y swaylock
 ln -sn ~/dotfiles/devuan_setup/config/sway ~/.config/sway
 rm -rf ~/.profile
 rm -rf ~/.bashrc

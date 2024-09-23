@@ -146,6 +146,7 @@ bindsym $Mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut.
 bindsym $Mod+Return exec foot
 bindsym $Mod+e exec thunar
 bindsym Print exec grimshot save area ~/screenshots/$(date "+2023-11-25_20-27-33").png
+bindsym $Mod+Shift+Control+l exec swaylock
 
 # SCREEN BACKLIGHT
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%- && brightnessctl g > $WOBSOCK_BRIGHTNESS
