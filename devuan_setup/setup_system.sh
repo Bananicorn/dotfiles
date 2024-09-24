@@ -102,9 +102,9 @@ chmod 755 $DOCKER_COMPOSE_PATH
 #wifi and bluetooth
 sudo apt install -y connman-gtk
 sudo cp ./config/connman/main.conf /etc/connman/main.conf
+
 sudo apt purge -y isc-dhcp-client
 sudo apt purge -y isc-dhcp-common
-
 sudo systemctl start systemd-networkd
 sudo systemctl enable systemd-networkd
 
