@@ -2,3 +2,4 @@ location=top
 order=alphabetical
 mode=drun
 insensitive=true
+lines=10
