@@ -24,4 +24,5 @@ if test -z "${XDG_RUNTIME_DIR}"; then
 fi
 
 udiskie &
+/usr/lib/x86_64-linux-gnu/libexec/kdeconnectd &
 dbus-run-session sway

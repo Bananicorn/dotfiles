@@ -83,6 +83,7 @@ sudo apt install -y filezilla
 sudo apt install -y thunar
 sudo apt install -y krita
 sudo apt install -y lftp
+sudo apt install -y kdeconnect
 sudo apt remove -y thunar-volman
 
 #screenshots
