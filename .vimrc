@@ -136,13 +136,3 @@ nnoremap <silent> <esc><esc> :noh<CR>
 "add custom/unknown filetypes
 autocmd BufNewFile,BufRead *.plan set filetype=plan
 autocmd BufNewFile,BufRead *.tsv set filetype=tsv
-
-"config of ale for linting and stuff
-let g:ale_linters = {
-	\   'javascript': ['eslint'],
-\}
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lintdelay = 1000
-"FINALLY YES
-nnoremap gd :ALEGoToDefinition<CR>
-nnoremap gfr :ALEFindReferences<CR>
