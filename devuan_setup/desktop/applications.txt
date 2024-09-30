@@ -8,6 +8,7 @@ inkscape
 keepassxc
 thunar
 krita
+gimp
 steam
 /sbin/reboot
 /sbin/shutdown now
