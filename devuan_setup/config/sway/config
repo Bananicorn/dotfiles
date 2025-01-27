@@ -121,17 +121,15 @@ mode "resize" {
 		bindsym Escape mode "default"
 }
 
-#device specifig config
-input 1:1:AT_Translated_Set_2_keyboard {
-	xkb_options caps:escape
-	xkb_numlock enable
-	xkb_layout de
-}
-
-input 1267:12299:ELAN0501:00_04F3:300B_Touchpad {
+#dwt = disable while typing
+input * {
 	tap enabled
 	natural_scroll disabled
 	dwt disabled
+
+	xkb_options caps:escape
+	xkb_numlock enable
+	xkb_layout de
 }
 
 bindsym $Mod+r mode "resize"
