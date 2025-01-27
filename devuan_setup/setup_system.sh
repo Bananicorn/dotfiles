@@ -9,6 +9,7 @@ cp ./scripts/sync_keepass.sh
 
 #make home folders I'll need
 mkdir -p ~/screenshots
+mkdir -p ~/screenrecordings
 mkdir -p ~/pictures
 mkdir -p ~/shared
 mkdir -p ~/downloads
