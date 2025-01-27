@@ -2,6 +2,7 @@
 #exec swaybg -i ~/pictures/insert_background_here.jpg
 
 exec /usr/libexec/xdg-desktop-portal -r & /usr/libexec/xdg-desktop-portal-wlr
+exec /usr/lib/x86_64-linux-gnu/libexec/kdeconnectd
 
 #bar for brigtness/sound/battery
 exec rm -f $WOBSOCK_VOLUME && mkfifo $WOBSOCK_VOLUME && tail -f $WOBSOCK_VOLUME | wob -c ~/.config/wob/wob-volume.ini
@@ -145,7 +146,8 @@ bindsym $Mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut.
 # PROGRAM SHORTCUTS
 bindsym $Mod+Return exec foot
 bindsym $Mod+e exec thunar
-bindsym Print exec grimshot save area ~/screenshots/$(date "+2023-11-25_20-27-33").png
+bindsym Print exec grimshot save active ~/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png
+bindsym Shift+Print exec sleep 3s; timeout --signal=SIGINT 15s wf-recorder -f ~/screenrecordings/$(date +%Y-%m-%d_%H-%M-%S).mp4
 bindsym $Mod+Shift+Control+l exec swaylock
 
 # SCREEN BACKLIGHT

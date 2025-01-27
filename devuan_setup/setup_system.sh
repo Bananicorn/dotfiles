@@ -85,6 +85,7 @@ sudo apt install -y krita
 sudo apt install -y gimp
 sudo apt install -y lftp
 sudo apt install -y kdeconnect
+sudo apt install -y wf-recorder
 sudo apt remove -y thunar-volman
 
 #screenshots
