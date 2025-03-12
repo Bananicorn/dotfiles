@@ -142,10 +142,11 @@ bindsym $Mod+Space exec "cat ~/desktop/applications.txt | wofi --dmenu | dash"
 bindsym $Mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your sway session.' -b 'Yes, exit sway' 'swaymsg exit'"
 
 # PROGRAM SHORTCUTS
-bindsym $Mod+Return exec foot
+bindsym $Mod+Return exec alacritty
 bindsym $Mod+e exec thunar
 bindsym Print exec grimshot save active ~/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png
-bindsym Shift+Print exec sleep 3s; timeout --signal=SIGINT 15s wf-recorder -f ~/screenrecordings/$(date +%Y-%m-%d_%H-%M-%S).mp4
+bindsym Shift+Print exec sleep 3s && touch ~/screenrecordings/tes
+bindsym $Mod+Print exec sleep 3s && timeout --signal=SIGINT 15s wf-recorder -f ~/screenrecordings/$(date +%Y-%m-%d_%H-%M-%S).mp4
 bindsym $Mod+Shift+Control+l exec swaylock
 
 # SCREEN BACKLIGHT

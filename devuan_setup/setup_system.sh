@@ -33,8 +33,7 @@ ln -sn ~/dotfiles/devuan_setup/scripts ~/scripts
 sudo apt install -y wl-clipboard
 
 #install terminal emulator
-sudo apt install -y foot
-ln -sn ~/dotfiles/devuan_setup/config/foot ~/.config/foot
+sudo apt install -y alacritty
 
 #dialog boxes
 sudo apt install -y zenity
